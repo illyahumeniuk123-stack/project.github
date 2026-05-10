@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Netherlands — A Dream Country</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #E8730A;
+    --orange-light: #F5A83E;
+    --blue-dark: #0C1F3F;
+    --blue-mid: #1A3A6B;
+    --blue-sky: #4A90C4;
+    --cream: #FAF4E8;
+    --white: #FFFFFF;
+    --text-dark: #0C1F3F;
+    --text-mid: #3A4F6B;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 3rem;
+    background: rgba(12,31,63,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--orange);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--white); letter-spacing: 0.05em;
+  }
+  .nav-logo span { color: var(--orange-light); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--orange-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--blue-dark) 0%, var(--blue-mid) 55%, #1B5C8A 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; padding: 7rem 2rem 4rem;
+  }
+  .tulip-row {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 90px;
+    background: linear-gradient(to top, #c0392b 0%, #e74c3c 30%, transparent 100%);
+    clip-path: polygon(0% 100%, 2% 40%, 4% 100%, 6% 35%, 8% 100%, 10% 40%, 12% 100%, 14% 38%, 16% 100%, 18% 42%, 20% 100%, 22% 36%, 24% 100%, 26% 40%, 28% 100%, 30% 38%, 32% 100%, 34% 42%, 36% 100%, 38% 36%, 40% 100%, 42% 40%, 44% 100%, 46% 38%, 48% 100%, 50% 42%, 52% 100%, 54% 36%, 56% 100%, 58% 40%, 60% 100%, 62% 38%, 64% 100%, 66% 42%, 68% 100%, 70% 36%, 72% 100%, 74% 40%, 76% 100%, 78% 38%, 80% 100%, 82% 42%, 84% 100%, 86% 36%, 88% 100%, 90% 40%, 92% 100%, 94% 38%, 96% 100%, 98% 42%, 100% 100%);
+  }
+  .hero-content {
+    text-align: center; color: var(--white);
+    position: relative; z-index: 2; max-width: 900px;
+    animation: fadeUp 1s ease both;
+  }
+  .hero-eyebrow {
+    font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--orange-light); margin-bottom: 1.2rem;
+    display: flex; align-items: center; justify-content: center; gap: 1rem;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; width: 40px; height: 1px; background: var(--orange-light);
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900; line-height: 1.05; margin-bottom: 1rem;
+  }
+  .hero-title em { color: var(--orange-light); font-style: italic; }
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: rgba(255,255,255,0.7); max-width: 600px;
+    margin: 0 auto 2.5rem; line-height: 1.7;
+  }
+  .flag-strip {
+    display: flex; justify-content: center; border-radius: 8px; overflow: hidden;
+    width: 80px; height: 50px; margin: 0 auto 2.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3); flex-direction: column;
+  }
+  .flag-strip .r { background: #AE1C28; flex: 1; }
+  .flag-strip .w { background: #FFFFFF; flex: 1; }
+  .flag-strip .b { background: #21468B; flex: 1; }
+  .hero-btn {
+    display: inline-block; padding: 0.9rem 2.5rem;
+    background: var(--orange); color: var(--white);
+    font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; border-radius: 50px;
+    box-shadow: 0 8px 30px rgba(232,115,10,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .hero-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(232,115,10,0.5); }
+
+  /* ── STATS BAND ── */
+  .stats-band {
+    background: var(--orange);
+    padding: 2.5rem 3rem;
+    display: flex; justify-content: center; flex-wrap: wrap;
+  }
+  .stat {
+    flex: 1; min-width: 150px; text-align: center;
+    padding: 0.5rem 2rem; color: var(--white);
+    border-right: 1px solid rgba(255,255,255,0.3);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem; font-weight: 900; display: block;
+  }
+  .stat-label { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 3rem; }
+  section:nth-child(even) { background: var(--white); }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--orange); font-weight: 500; margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
+    line-height: 1.15; margin-bottom: 1.2rem; color: var(--blue-dark);
+  }
+  .section-title em { color: var(--orange); font-style: italic; }
+  .section-lead {
+    font-size: 1.05rem; color: var(--text-mid); line-height: 1.8;
+    max-width: 680px; margin-bottom: 3rem;
+  }
+
+  /* ── INTRO SPLIT ── */
+  .intro-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .intro-visual { position: relative; height: 420px; }
+  .intro-visual .big-circle {
+    width: 340px; height: 340px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue-mid), var(--blue-sky));
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    overflow: hidden; display: flex; align-items: center; justify-content: center;
+  }
+  .canal-svg { width: 100%; height: 100%; }
+  .intro-badge {
+    position: absolute; bottom: 10px; right: 0;
+    background: var(--orange); color: var(--white);
+    padding: 1rem 1.5rem; border-radius: 12px;
+    font-family: 'Playfair Display', serif; font-size: 1rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15); text-align: center;
+  }
+  .intro-badge strong { display: block; font-size: 1.8rem; }
+
+  /* ── CARDS GRID ── */
+  .cards-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem;
+  }
+  .card {
+    background: var(--cream); border-radius: 16px; padding: 2rem;
+    border: 1px solid rgba(12,31,63,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--orange);
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(12,31,63,0.12); }
+  .card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+  .card-title {
+    font-family: 'Playfair Display', serif; font-size: 1.25rem;
+    font-weight: 700; margin-bottom: 0.7rem; color: var(--blue-dark);
+  }
+  .card-text { font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 2.5rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 2px; background: linear-gradient(to bottom, var(--orange), var(--blue-sky));
+  }
+  .tl-item { position: relative; margin-bottom: 2.5rem; padding-left: 1.5rem; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -2.1rem; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--orange); border: 3px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--orange);
+  }
+  .tl-year {
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--orange); font-weight: 500;
+  }
+  .tl-event {
+    font-family: 'Playfair Display', serif; font-size: 1.1rem;
+    font-weight: 700; margin: 0.2rem 0 0.4rem;
+  }
+  .tl-desc { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; }
+
+  /* ── TWO COL ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+
+  /* ── TABLE ── */
+  .attr-table { width: 100%; border-collapse: collapse; }
+  .attr-table thead tr { background: var(--blue-dark); color: var(--white); }
+  .attr-table th {
+    padding: 1rem 1.2rem; text-align: left;
+    font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .attr-table td { padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(12,31,63,0.08); }
+  .attr-table tbody tr:nth-child(even) { background: rgba(12,31,63,0.03); }
+  .attr-table tbody tr:hover { background: rgba(232,115,10,0.06); }
+  .badge-type {
+    display: inline-block; padding: 0.2rem 0.7rem;
+    background: var(--orange); color: var(--white);
+    border-radius: 50px; font-size: 0.72rem; font-weight: 500;
+  }
+  .badge-type.culture { background: var(--blue-mid); }
+  .badge-type.nature  { background: #2E7D32; }
+
+  /* ── TIPS ── */
+  .tips-list { list-style: none; }
+  .tips-list li {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem 0; border-bottom: 1px solid rgba(12,31,63,0.08);
+  }
+  .tips-list li:last-child { border-bottom: none; }
+  .tip-num {
+    min-width: 36px; height: 36px; border-radius: 50%;
+    background: var(--blue-dark); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .tip-text strong { display: block; margin-bottom: 0.2rem; color: var(--blue-dark); }
+  .tip-text span { font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; }
+
+  /* ── QUOTE ── */
+  .quote-block {
+    background: var(--blue-dark); color: var(--white);
+    padding: 4rem 5rem; border-radius: 20px;
+    position: relative; overflow: hidden; text-align: center;
+  }
+  .quote-block::before {
+    content: '"';
+    font-family: 'Playfair Display', serif; font-size: 15rem;
+    color: rgba(232,115,10,0.15); line-height: 1;
+    position: absolute; top: -2rem; left: 2rem;
+  }
+  .quote-text {
+    font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+    font-style: italic; line-height: 1.5; position: relative; z-index: 1;
+    margin-bottom: 1.5rem;
+  }
+  .quote-source { font-size: 0.85rem; letter-spacing: 0.1em; color: var(--orange-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--blue-dark); color: var(--white);
+    padding: 3rem; text-align: center;
+  }
+  footer .footer-logo {
+    font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 0.5rem;
+  }
+  footer .footer-logo span { color: var(--orange-light); }
+  footer p { font-size: 0.83rem; color: rgba(255,255,255,0.5); margin-top: 1rem; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .intro-grid, .two-col { grid-template-columns: 1fr; gap: 2rem; }
+    .stats-band { gap: 0; }
+    .stat { min-width: 120px; padding: 0.5rem 1rem; }
+    .intro-visual { height: 300px; }
+    .quote-block { padding: 3rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">🇳🇱 <span>The Netherlands</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#attractions">Places</a></li>
+    <li><a href="#culture">Culture</a></li>
+    <li><a href="#history">History</a></li>
+    <li><a href="#travel">Travel Tips</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="tulip-row"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">An EU Country I Want to Visit</div>
+    <div class="flag-strip"><div class="r"></div><div class="w"></div><div class="b"></div></div>
+    <h1 class="hero-title">
+      The Kingdom of<br><em>the Netherlands</em>
+    </h1>
+    <p class="hero-subtitle">
+      A land of tulips, canals, windmills, and freedom —
+      where old history and new ideas live side by side.
+    </p>
+    <a href="#about" class="hero-btn">Learn More ↓</a>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stat"><span class="stat-num">17.9M</span><span class="stat-label">People</span></div>
+  <div class="stat"><span class="stat-num">41,543</span><span class="stat-label">km² Area</span></div>
+  <div class="stat"><span class="stat-num">1648</span><span class="stat-label">Year of Freedom</span></div>
+  <div class="stat"><span class="stat-num">20M+</span><span class="stat-label">Tourists per Year</span></div>
+  <div class="stat"><span class="stat-num">€</span><span class="stat-label">Currency — Euro</span></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="intro-grid reveal">
+      <div>
+        <div class="section-tag">General Info</div>
+        <h2 class="section-title">Why visit <em>the Netherlands?</em></h2>
+        <p class="section-lead">
+          The Netherlands is a small but very special country in western Europe.
+          It is famous for its pretty canals, bright fields of tulips,
+          great museums, and open and friendly people.
+          It is one of the best places to visit in Europe.
+        </p>
+        <p class="section-lead" style="margin-bottom:0">
+          Cities like Amsterdam, Rotterdam, The Hague, and Delft are all very different
+          and all very fun to visit. You can enjoy art, food, nature, bikes,
+          and beautiful old buildings — all in one small country!
+        </p>
+      </div>
+      <div class="intro-visual">
+        <div class="big-circle">
+          <!-- Amsterdam canal illustration -->
+          <svg class="canal-svg" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+            <rect width="340" height="340" fill="#4A90C4"/>
+            <rect y="220" width="340" height="120" fill="#1A5276"/>
+            <rect x="20" y="120" width="60" height="100" fill="#E8730A"/>
+            <polygon points="20,120 80,120 50,80" fill="#C0591A"/>
+            <rect x="35" y="155" width="20" height="25" fill="#FAD7A0"/>
+            <rect x="45" y="130" width="10" height="15" fill="#FAD7A0"/>
+            <rect x="100" y="100" width="55" height="120" fill="#D4AC0D"/>
+            <polygon points="100,100 155,100 127,55" fill="#B7950B"/>
+            <rect x="113" y="135" width="18" height="22" fill="#AED6F1"/>
+            <rect x="120" y="107" width="12" height="18" fill="#AED6F1"/>
+            <rect x="175" y="130" width="50" height="90" fill="#C0392B"/>
+            <polygon points="175,130 225,130 200,95" fill="#96281B"/>
+            <rect x="185" y="158" width="16" height="20" fill="#FAD7A0"/>
+            <rect x="245" y="110" width="70" height="110" fill="#1A5276"/>
+            <polygon points="245,110 315,110 280,65" fill="#154360"/>
+            <rect x="260" y="145" width="20" height="25" fill="#AED6F1"/>
+            <rect x="270" y="118" width="14" height="16" fill="#AED6F1"/>
+            <rect x="0" y="220" width="340" height="5" fill="rgba(255,255,255,0.1)"/>
+            <ellipse cx="70" cy="245" rx="30" ry="5" fill="rgba(255,255,255,0.08)"/>
+            <ellipse cx="190" cy="260" rx="40" ry="5" fill="rgba(255,255,255,0.08)"/>
+            <ellipse cx="160" cy="255" rx="45" ry="10" fill="#5D4037"/>
+            <rect x="145" y="240" width="30" height="15" fill="#795548"/>
+            <rect x="5" y="210" width="4" height="15" fill="#27AE60"/>
+            <ellipse cx="7" cy="208" rx="5" ry="7" fill="#E74C3C"/>
+            <rect x="15" y="213" width="4" height="12" fill="#27AE60"/>
+            <ellipse cx="17" cy="211" rx="5" ry="7" fill="#F39C12"/>
+            <rect x="300" y="210" width="4" height="15" fill="#27AE60"/>
+            <ellipse cx="302" cy="208" rx="5" ry="7" fill="#9B59B6"/>
+          </svg>
+        </div>
+        <div class="intro-badge">
+          <strong>Top 5</strong>
+          happiest<br>countries in the world
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY VISIT -->
+<section id="reasons">
+  <div class="section-inner">
+    <div class="section-tag reveal">6 Good Reasons</div>
+    <h2 class="section-title reveal">What makes the Netherlands<br><em>so special?</em></h2>
+    <div class="cards-grid">
+
+      <div class="card reveal">
+        <div class="card-icon">🌷</div>
+        <div class="card-title">Tulip Fields</div>
+        <p class="card-text">Keukenhof is the biggest flower garden in the world. Every spring, from March to May, millions of tulips make the land look like a big, colorful painting.</p>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon">🏛️</div>
+        <div class="card-title">Great Art Museums</div>
+        <p class="card-text">The Rijksmuseum, the Van Gogh Museum, and the Mauritshuis have amazing paintings. You can see works by Rembrandt, Vermeer, and Van Gogh — all in one city!</p>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon">🚲</div>
+        <div class="card-title">Bike Culture</div>
+        <p class="card-text">There are over 35,000 km of bike paths! Almost everyone in the Netherlands uses a bike every day. It is the best country in the world for cycling.</p>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon">⚓</div>
+        <div class="card-title">Canals and Old Houses</div>
+        <p class="card-text">The canals of Amsterdam are a UNESCO World Heritage Site. The old, tall, narrow houses from the 1600s are very beautiful and easy to walk around.</p>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon">🧀</div>
+        <div class="card-title">Yummy Food</div>
+        <p class="card-text">Try Gouda cheese, Edam cheese, fresh herring, stroopwafels (sweet syrup waffles), and Dutch fries with sauce. Simple but very tasty!</p>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon">🌍</div>
+        <div class="card-title">Open and Friendly People</div>
+        <p class="card-text">The Netherlands is known for being a very free, safe, and welcoming country. People are kind and helpful. Almost everyone speaks good English!</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ATTRACTIONS TABLE -->
+<section id="attractions">
+  <div class="section-inner">
+    <div class="section-tag reveal">Top Places to See</div>
+    <h2 class="section-title reveal">The Best <em>Sights</em></h2>
+    <p class="section-lead reveal">From old castles to modern buildings — the Netherlands has something for everyone.</p>
+    <div class="reveal" style="overflow-x:auto">
+    <table class="attr-table">
+      <thead>
+        <tr>
+          <th>Place</th>
+          <th>City</th>
+          <th>Type</th>
+          <th>Why It Is Special</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Rijksmuseum</strong></td>
+          <td>Amsterdam</td>
+          <td><span class="badge-type culture">Culture</span></td>
+          <td>The biggest art museum in the Netherlands. Home to Rembrandt's "The Night Watch"</td>
+        </tr>
+        <tr>
+          <td><strong>Keukenhof</strong></td>
+          <td>Lisse</td>
+          <td><span class="badge-type nature">Nature</span></td>
+          <td>The largest flower garden in the world — 7 million bulbs every spring</td>
+        </tr>
+        <tr>
+          <td><strong>Van Gogh Museum</strong></td>
+          <td>Amsterdam</td>
+          <td><span class="badge-type culture">Culture</span></td>
+          <td>Has the most Van Gogh paintings in the world in one place</td>
+        </tr>
+        <tr>
+          <td><strong>Muiden Castle</strong></td>
+          <td>Muiden</td>
+          <td><span class="badge-type">Building</span></td>
+          <td>A real medieval castle from the 1200s — still in very good shape</td>
+        </tr>
+        <tr>
+          <td><strong>Kinderdijk</strong></td>
+          <td>Kinderdijk</td>
+          <td><span class="badge-type nature">Nature</span></td>
+          <td>19 old windmills from the 1700s — a UNESCO World Heritage Site</td>
+        </tr>
+        <tr>
+          <td><strong>Markthal Market</strong></td>
+          <td>Rotterdam</td>
+          <td><span class="badge-type">Building</span></td>
+          <td>A very cool indoor market with a big colorful painting on the ceiling</td>
+        </tr>
+        <tr>
+          <td><strong>Anne Frank House</strong></td>
+          <td>Amsterdam</td>
+          <td><span class="badge-type culture">Culture</span></td>
+          <td>The real house where Anne Frank hid during World War II — very moving to visit</td>
+        </tr>
+        <tr>
+          <td><strong>Old Town of Delft</strong></td>
+          <td>Delft</td>
+          <td><span class="badge-type">Building</span></td>
+          <td>A charming old town — birthplace of the painter Vermeer and blue Delft pottery</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- CULTURE & HISTORY -->
+<section id="culture">
+  <div class="section-inner two-col">
+    <div class="reveal">
+      <div class="section-tag">Culture and Traditions</div>
+      <h2 class="section-title">A Rich <em>Culture</em></h2>
+      <p class="section-lead">
+        In the 1600s, the Netherlands was the richest country in the world.
+        Dutch painters from this time are still very famous today.
+        This time is called the "Golden Age."
+      </p>
+      <div class="cards-grid" style="grid-template-columns:1fr 1fr; gap:1rem">
+        <div class="card" style="padding:1.2rem">
+          <div class="card-icon" style="font-size:1.5rem">🎨</div>
+          <div class="card-title" style="font-size:1rem">Painting</div>
+          <p class="card-text" style="font-size:0.82rem">Rembrandt, Vermeer, Hals — great Dutch painters from the past</p>
+        </div>
+        <div class="card" style="padding:1.2rem">
+          <div class="card-icon" style="font-size:1.5rem">🎭</div>
+          <div class="card-title" style="font-size:1rem">Theatre</div>
+          <p class="card-text" style="font-size:0.82rem">Over 60 theatres and many big events and festivals each year</p>
+        </div>
+        <div class="card" style="padding:1.2rem">
+          <div class="card-icon" style="font-size:1.5rem">🎺</div>
+          <div class="card-title" style="font-size:1rem">Music</div>
+          <p class="card-text" style="font-size:0.82rem">The Concertgebouw orchestra is one of the best in the world</p>
+        </div>
+        <div class="card" style="padding:1.2rem">
+          <div class="card-icon" style="font-size:1.5rem">👑</div>
+          <div class="card-title" style="font-size:1rem">Holidays</div>
+          <p class="card-text" style="font-size:0.82rem">King's Day on April 27 — the biggest national celebration</p>
+        </div>
+      </div>
+    </div>
+    <div id="history" class="reveal">
+      <div class="section-tag">Key Dates</div>
+      <h2 class="section-title">A Short <em>History</em></h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">Around 1200</div>
+          <div class="tl-event">Amsterdam is Founded</div>
+          <p class="tl-desc">A small fishing village on the Amstel river slowly grew into the big and famous capital city we know today.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1568–1648</div>
+          <div class="tl-event">The Eighty Years' War</div>
+          <p class="tl-desc">The Dutch people fought for their freedom from Spanish rule. In 1648, they won and became an independent country.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1600s</div>
+          <div class="tl-event">The Golden Age</div>
+          <p class="tl-desc">The Netherlands became the richest country in the world. Trade, art, and science all grew very fast during this time.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1815</div>
+          <div class="tl-event">Kingdom of the Netherlands</div>
+          <p class="tl-desc">After the wars with Napoleon, the Netherlands became a kingdom again. The king or queen still rules today.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1957</div>
+          <div class="tl-event">A Founder of the EU</div>
+          <p class="tl-desc">The Netherlands was one of the six countries that started the European Economic Community — which later became the EU.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="quote-block reveal">
+      <p class="quote-text">
+        "The Netherlands is a place where the sky feels close,
+        the water is clear, and every street has a story to tell."
+      </p>
+      <div class="quote-source">— About the spirit of the Dutch landscape</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAVEL TIPS -->
+<section id="travel">
+  <div class="section-inner">
+    <div class="section-tag reveal">Useful Information</div>
+    <h2 class="section-title reveal">Tips for <em>Travelers</em></h2>
+    <div class="two-col">
+      <div class="reveal">
+        <ul class="tips-list">
+          <li>
+            <div class="tip-num">1</div>
+            <div class="tip-text">
+              <strong>Best Time to Visit</strong>
+              <span>April and May are great — the tulips are in bloom and the weather is nice. June to August is warm and there are many fun events.</span>
+            </div>
+          </li>
+          <li>
+            <div class="tip-num">2</div>
+            <div class="tip-text">
+              <strong>Getting Around</strong>
+              <span>Rent a bike — it is the most fun and easiest way to see the city. Trains connect all the big cities quickly and cheaply.</span>
+            </div>
+          </li>
+          <li>
+            <div class="tip-num">3</div>
+            <div class="tip-text">
+              <strong>Language</strong>
+              <span>People speak Dutch, but do not worry — about 95% of Dutch people speak very good English. You can talk to almost anyone!</span>
+            </div>
+          </li>
+          <li>
+            <div class="tip-num">4</div>
+            <div class="tip-text">
+              <strong>Museum Card</strong>
+              <span>The Museumkaart gives you free entry to over 400 museums. It is a great deal if you love art and history.</span>
+            </div>
+          </li>
+          <li>
+            <div class="tip-num">5</div>
+            <div class="tip-text">
+              <strong>Safety</strong>
+              <span>The Netherlands is one of the safest countries in Europe. Just be careful of bike lanes — bikes go fast and have the right of way!</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="card" style="margin-bottom:1.5rem">
+          <div class="card-icon">✈️</div>
+          <div class="card-title">How to Get There</div>
+          <p class="card-text">Amsterdam Schiphol Airport is one of the biggest airports in Europe. You can fly there from many cities. You can also take a fast train from Brussels or Paris.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏨</div>
+          <div class="card-title">Where to Stay</div>
+          <p class="card-text"><strong>Amsterdam</strong> — great for art and history lovers. <strong>The Hague</strong> — calm and elegant. <strong>Delft</strong> — small, cozy, and very pretty. <strong>Rotterdam</strong> — perfect for fans of modern buildings.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🇳🇱 <span>The Kingdom of the Netherlands</span></div>
+  <p>School Project — "An EU Country I Would Like to Visit"</p>
+  <p style="margin-top:0.3rem">The Netherlands — a land of tulips, canals, and good people</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
